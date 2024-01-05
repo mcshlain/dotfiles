@@ -1,0 +1,31 @@
+#!/bin/bash
+
+availableLayouts=$(ls ${HOME}/.screenlayout -l | awk '{if (NR > 1) print $9}' | sed -E "s/\.sh//" | tr "\n" " " | sed -E "s/\s$//")
+layoutsArray=(${availableLayouts})
+
+currentLayoutFile="${HOME}/.local/share/i3/current-layout"
+
+# if not state file exists create one with the state of the first layout
+if [ ! -f ${currentLayoutFile} ]; then
+    echo "No layout state found, creating file"
+    layoutToApply=${layoutsArray[0]}
+else
+    # check current layout and apply the next one
+    currentLayoutId=$(cat ${currentLayoutFile} | sed -E "s/^([0-9]).*/\1/")
+    currentLayoutId=$((${currentLayoutId} + 1))
+
+    if [ "${currentLayoutId}" -eq "${#layoutsArray[@]}" ]; then
+        currentLayoutId=0
+    fi
+
+    layoutToApply=${layoutsArray[${currentLayoutId}]}
+fi
+
+
+mkdir -p ~/.local/share/i3
+echo "${layoutToApply}" > ${currentLayoutFile} 
+# run the layout script
+${HOME}/.screenlayout/${layoutToApply}.sh
+
+# adjust wallpaper 
+feh --bg-scale ${HOME}/.i3/background.jpg

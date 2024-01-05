@@ -1,0 +1,14 @@
+#!/bin/bash
+if dpkg -l | grep scrot
+then
+    if dpkg -l | grep imagemagick
+    then
+        scrot /tmp/screenshot.png
+        convert /tmp/screenshot.png -colorspace gray -blur 0x5 /tmp/screenshotblur.png
+        i3lock -i /tmp/screenshotblur.png
+    else 
+        i3lock -c 000000
+    fi
+else 
+    i3lock -c 000000
+fi

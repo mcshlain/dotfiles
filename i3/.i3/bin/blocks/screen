@@ -1,0 +1,5 @@
+#!/bin/bash
+cat ~/.local/share/i3/current-layout | sed -E 's/^..(.*)/\1/'
+cat ~/.local/share/i3/current-layout | sed -E 's/^..(.*)/\1/'
+echo "" 
+

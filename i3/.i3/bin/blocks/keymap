@@ -1,0 +1,20 @@
+killall kbdd 2>/dev/null
+kbdd >/dev/null || exit 1
+
+# Get initial state of layout
+N=$( dbus-send --print-reply=literal --dest=ru.gentoo.KbddService\
+    /ru/gentoo/KbddService ru.gentoo.kbdd.getCurrentLayout 2>/dev/null |\
+    sed -un 's/^.*uint32 //p' )
+
+full_name=$( dbus-send --print-reply=literal --dest=ru.gentoo.KbddService \
+	/ru/gentoo/KbddService ru.gentoo.kbdd.getLayoutName uint32:$N | sed -E "s/\s+//g" )
+
+if [ "${full_name}" = "Hebrew" ]; then
+  echo "HE"
+  echo "HE"
+  echo ""
+else
+  echo "EN"
+  echo "EN"
+  echo ""
+fi

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+touchStatus=`synclient -l | grep TouchpadOff | perl -ne '/(\d+)/ && print "$1\n"'`
+
+if [ "$touchStatus" = "1" ]; then
+	echo "off"
+	echo "off"
+	echo "#FF0000"
+else 
+	echo "on"
+	echo "on"
+	echo "#00FF00"
+fi

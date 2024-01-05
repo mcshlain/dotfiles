@@ -1,0 +1,8 @@
+#!/bin/bash
+currentLayoutFile="${HOME}/.local/share/i3/current-layout"
+currentLayout=$(cat ${currentLayoutFile} | awk '{print $1}')
+
+echo "Runnign: ${HOME}/.screenlayout/${currentLayout}.sh"
+${HOME}/.screenlayout/${currentLayout}.sh
+# adjust wallpaper 
+feh --bg-scale ${HOME}/.i3/background.jpg

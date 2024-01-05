@@ -112,7 +112,6 @@ BULLETTRAIN_DIR_EXTENDED=2
 BULLETTRAIN_VIRTUALENV_BG=green
 BULLETTRAIN_VIRTUALENV_FG=white
 
-
 BULLETTRAIN_PROMPT_ORDER=(
   virtualenv
   time
@@ -122,43 +121,3 @@ BULLETTRAIN_PROMPT_ORDER=(
   status
 )
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Activate conda
-# . $HOME/apps/conda/etc/profile.d/conda.sh  # commented out by conda initialize
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#compdef pipenv
-_pipenv() {
-  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _PIPENV_COMPLETE=complete-zsh  pipenv)
-}
-if [[ "$(basename -- ${(%):-%x})" != "_pipenv" ]]; then
-  compdef _pipenv pipenv
-fi
-
-setxkbmap -layout us,il -option 'grp:alt_shift_toggle' -option ctrl:nocaps
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mcshlain/apps/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/mcshlain/apps/conda/etc/profile.d/conda.sh" ]; then
-        . "/home/mcshlain/apps/conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/mcshlain/apps/conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-conda activate spike10
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

@@ -16,14 +16,6 @@ sudo update-grub
 sudo reboot
 ```
 
-### Install emacs 25.1
-
-```
-sudo add-apt-repository ppa:kelleyk/emacs
-sudo apt update
-sudo apt install emacs25 -y
-```
-
 ### Change notification service to dunst
 
 edit /usr/share/dbus-1/services/org.freedesktop.Notifications.service

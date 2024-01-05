@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/micah/data/grabtaxi/mapreduce'
-let g:netrw_dirhist_2='/home/micah/projects/pyRanger/build/CMakeFiles'
-let g:netrw_dirhist_3='/home/micah/data/sample-tables/dfs-null'
-let g:netrw_dirhist_4='/home/mcshlain/Downloads'

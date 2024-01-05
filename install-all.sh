@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# install emacs25
-sudo add-apt-repository ppa:kelleyk/emacsi
-sudo apt-get update
-sudo apt-get install emacs25
-
 # install i3
 # i3blocks      - for better status bar
 # feh           - for background (wallpaper) support
@@ -33,7 +28,7 @@ fc-cache -vf
 sudo apt-get install stow -y
 
 # stow all configurations (create soft links where needed)
-for MODULE in "i3" "spacemacs" "tmux" "vim" "zsh" "ranger" "rofi" "conda" "haskell" "dunst"
+for MODULE in "i3" "zsh" "ranger" "rofi" "dunst"
 do
     stow $MODULE
 done

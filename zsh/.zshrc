@@ -89,7 +89,7 @@ source $ZSH/oh-my-zsh.sh
 alias ls='ls --color'
 alias la='ls -a'
 alias ll='ls -ltrh'
-alias vi='vim'
+alias vi='nvim'
 alias ff='find . -type f -name '
 alias psg='ps -e | grep -i '
 alias du='du -h'

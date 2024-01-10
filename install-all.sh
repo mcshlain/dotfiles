@@ -11,7 +11,7 @@
 sudo apt-get install i3 i3blocks feh fonts-font-awesome kbdd rofi arandr dunst -y
 
 # install a commnd line file manager and different packages to work with different files
-sudo apt-get install ranger neovim caca-utils highlight atool w3m poppler-utils mediainfo -y
+sudo apt-get install ranger neovim caca-utils highlight atool w3m poppler-utils mediainfo flameshot -y
 
 # for cool locking screen
 sudo apt-get install scrot imagemagick 
@@ -28,7 +28,7 @@ fc-cache -vf
 sudo apt-get install stow -y
 
 # stow all configurations (create soft links where needed)
-for MODULE in "i3" "zsh" "ranger" "rofi" "dunst" "nvim"
+for MODULE in "i3" "zsh" "ranger" "rofi" "dunst" "nvim" "fonts"
 do
     stow $MODULE
 done

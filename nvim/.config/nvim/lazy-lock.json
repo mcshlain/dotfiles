@@ -12,6 +12,6 @@
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "92e688f013c69f90c9bbd596019ec10235bc51de" },
   "nvim-web-devicons": { "branch": "master", "commit": "db0c864375c198cacc171ff373e76bfce2a85045" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
-  "primer.nvim": { "branch": "master", "commit": "b8d7e08eed9a61eb2f49b9196b01f7f2932735ff" },
-  "schemastore.nvim": { "branch": "main", "commit": "fcb1522fefd0f9029b7dc71aa2664d2d0ead0fb3" }
+  "schemastore.nvim": { "branch": "main", "commit": "fcb1522fefd0f9029b7dc71aa2664d2d0ead0fb3" },
+  "tokyonight.nvim": { "branch": "main", "commit": "f247ee700b569ed43f39320413a13ba9b0aef0db" }
 }

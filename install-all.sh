@@ -11,7 +11,9 @@
 sudo apt-get install i3 i3blocks feh fonts-font-awesome kbdd rofi arandr dunst -y
 
 # install a commnd line file manager and different packages to work with different files
-sudo apt-get install ranger neovim caca-utils highlight atool w3m poppler-utils mediainfo flameshot -y
+# flameshot - screenshot tool
+# ripgrep - fast grep implementation in rust
+sudo apt-get install ranger neovim caca-utils highlight atool w3m poppler-utils mediainfo flameshot ripgrep -y
 
 # for cool locking screen
 sudo apt-get install scrot imagemagick 

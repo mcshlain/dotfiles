@@ -121,7 +121,11 @@ function M.config()
       },
       e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
-
+    x = {
+      name = "Trouble",
+      x = {"<cmd>TroubleToggle<cr>", "Toggle Panel"},
+      q = {"<cmd>TroubleClose<cr>", "Close Panel"}
+    },
 --     t = {
 --       name = "Tab",
 --       t = {

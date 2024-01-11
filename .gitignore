@@ -7,3 +7,4 @@
 # ranger tmp files
 /ranger/.config/ranger/bookmarks
 /ranger/.config/ranger/tags
+/fonts/.fonts/.uuid

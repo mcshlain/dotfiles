@@ -10,6 +10,17 @@ function M.config()
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+    m = {
+      name = "Scala Metals",
+      i = { "<cmd>:MetalsInfo<cr>", "Metals [i]nfo" },
+      r = { "<cmd>:MetalsRestartBuildServer<cr>", "[r]estart Build Server" },
+      d = { "<cmd>:MetalsRunDoctor<cr>", "Run [d]octor" },
+      f = { "<cmd>:MetalsRunScalafix<cr>", "Run Scala[f]ix" },
+      l = { "<cmd>:MetalsToggleLogs<cr>", "Toggle [l]ogs" },
+      o = { "<cmd>:MetalsOrganizeImports<cr>", "[O]rganize imports" },
+      m = { "<cmd>:Telescope metals commands<cr>", "Show [M]etals commands" },
+    },
+
     w = {
       name = "Windows",
       h = { "<cmd>:sp<cr>", "Split [H]orizontally" },

@@ -1,3 +1,4 @@
+-- Based on https://github.com/LunarVim/Launch.nvim
 require "user.launch"
 require "user.options"
 require "user.keymaps"
@@ -21,4 +22,8 @@ spec "user.neogit"
 spec "user.diffview"
 spec "user.illuminate"
 spec "user.trouble"
+spec "user.metals"
+spec "user.todo-comments"
+spec "user.cmp"
 require "user.lazy"
+require "user.autocmds"

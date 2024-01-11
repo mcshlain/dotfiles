@@ -19,7 +19,7 @@ keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
--- keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
+keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 
 -- Better window navigation
 -- keymap("n", "<m-h>", "<C-w>h", opts)

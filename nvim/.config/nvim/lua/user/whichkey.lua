@@ -10,10 +10,15 @@ function M.config()
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+    w = {
+      name = "Windows",
+      h = { "<cmd>:sp<cr>", "Split [H]orizontally" },
+      v = { "<cmd>:vsplit<cr>", "Split [V]ertically" },
+    },
     b = {
       name = "Buffers",
-      b = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-      p = { "<cmd>:e #<cr>", "Previous Buffer" },
+      b = { "<cmd>Telescope buffers previewer=false<cr>", "Find [B]uffer" },
+      p = { "<cmd>:e #<cr>", "Open [P]revious " },
     },
 --     d = {
 --       name = "Debug",

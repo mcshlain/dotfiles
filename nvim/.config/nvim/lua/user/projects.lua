@@ -5,6 +5,20 @@ local M = {
 }
 
 function M.config()
+  local wk = require "which-key"
+
+  wk.register({
+    p = {
+      name = "Project",
+      p = {
+        "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+        "Show Projects",
+        noremap = true,
+        silent = true,
+      },
+    },
+  }, { prefix = "<leader>" })
+
   require("project_nvim").setup {
     active = true,
     on_config_done = nil,
@@ -17,11 +31,6 @@ function M.config()
     silent_chdir = true,
     scope_chdir = "global",
   }
-
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_set_keymap
-
-  keymap("n", "<c-p>", ":lua require('telescope').extensions.projects.projects()<CR>", opts)
 end
 
 return M

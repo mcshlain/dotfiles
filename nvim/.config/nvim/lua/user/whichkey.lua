@@ -9,7 +9,6 @@ function M.config()
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
     m = {
       name = "Scala Metals",
       i = { "<cmd>:MetalsInfo<cr>", "Metals [i]nfo" },
@@ -48,8 +47,8 @@ function M.config()
 --       q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
 --       U = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
 --     },
-    p = {
-      name = "Plugins",
+    z = {
+      name = "La[z]y",
       i = { "<cmd>Lazy install<cr>", "Install" },
       s = { "<cmd>Lazy sync<cr>", "Sync" },
       S = { "<cmd>Lazy clear<cr>", "Status" },
@@ -78,34 +77,6 @@ function M.config()
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       C = { "<cmd>Telescope commands<cr>", "Commands" },
     },
-
-    g = {
-      name = "Git",
-      g = { "<cmd>Neogit<cr>", "Neogit" },
-      j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next Hunk" },
-      k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
-      l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-      p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-      r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-      R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-      s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-      u = {
-        "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-        "Undo Stage Hunk",
-      },
-      o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-      C = {
-        "<cmd>Telescope git_bcommits<cr>",
-        "Checkout commit(for current file)",
-      },
-      d = {
-        "<cmd>Gitsigns diffthis HEAD<cr>",
-        "Git Diff",
-      },
-    },
-
     l = {
       name = "LSP",
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -132,11 +103,7 @@ function M.config()
       },
      e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
-    x = {
-      name = "Trouble",
-      x = {"<cmd>TroubleToggle<cr>", "Toggle Panel"},
-      q = {"<cmd>TroubleClose<cr>", "Close Panel"}
-    },
+    
 --     t = {
 --       name = "Tab",
 --       t = {

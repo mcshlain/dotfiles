@@ -5,8 +5,38 @@ local M = {
 }
 
 function M.config()
-  local icons = require "user.icons"
+  local wk = require "which-key"
 
+  wk.register ({
+    g = {
+      name = "Git",
+      g = { "<cmd>Neogit<cr>", "Neogit" },
+      j = { "<cmd>lua require 'gitsigns'.next_hunk({navigation_message = false})<cr>", "Next Hunk" },
+      k = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
+      l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+      p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
+      r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
+      R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+      s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+      u = {
+        "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+        "Undo Stage Hunk",
+      },
+      o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+      c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+      C = {
+        "<cmd>Telescope git_bcommits<cr>",
+        "Checkout commit(for current file)",
+      },
+      d = {
+        "<cmd>Gitsigns diffthis HEAD<cr>",
+        "Git Diff",
+      },
+    },
+  }, { prefix = "<leader>" })
+
+  local icons = require "user.icons"
   require("neogit").setup {
     disable_signs = false,
     -- disable_hint = true,
@@ -39,67 +69,74 @@ function M.config()
       diffview = true,
     },
     -- Setting any section to `false` will make the section not render at all
-    -- sections = {
-    --   untracked = {
-    --     folded = false,
-    --   },
-    --   unstaged = {
-    --     folded = false,
-    --   },
-    --   staged = {
-    --     folded = false,
-    --   },
-    --   stashes = {
-    --     folded = true,
-    --   },
-    --   unpulled = {
-    --     folded = true,
-    --   },
-    --   unmerged = {
-    --     folded = false,
-    --   },
-    --   recent = {
-    --     folded = true,
-    --   },
-    -- },
+    sections = {
+      untracked = {
+        folded = false,
+        hidden = false,
+      },
+      unstaged = {
+        folded = false,
+        hidden = false,
+      },
+      staged = {
+        folded = false,
+        hidden = false,
+      },
+      stashes = {
+        folded = true,
+        hidden = false,
+      },
+      unpulled = {
+        folded = true,
+        hidden = false,
+      },
+      unmerged = {
+        folded = false,
+        hidden = false,
+      },
+      recent = {
+        folded = true,
+        hidden = false,
+      },
+    },
     -- override/add mappings
-    -- mappings = {
-    --   -- modify status buffer mappings
-    --   status = {
-    --     ["q"] = "Close",
-    --     ["1"] = "Depth1",
-    --     ["2"] = "Depth2",
-    --     ["3"] = "Depth3",
-    --     ["4"] = "Depth4",
-    --     ["<tab>"] = "Toggle",
-    --     ["x"] = "Discard",
-    --     ["s"] = "Stage",
-    --     ["a"] = "StageUnstaged",
-    --     ["<c-s>"] = "StageAll",
-    --     ["u"] = "Unstage",
-    --     ["U"] = "UnstageStaged",
-    --     ["d"] = "DiffAtFile",
-    --     ["$"] = "CommandHistory",
-    --     ["<c-r>"] = "RefreshBuffer",
-    --     ["o"] = "GoToFile",
-    --     ["<enter>"] = "Toggle",
-    --     ["<c-v>"] = "VSplitOpen",
-    --     ["<c-x>"] = "SplitOpen",
-    --     ["<c-t>"] = "TabOpen",
-    --     ["?"] = "HelpPopup",
-    --     ["D"] = "DiffPopup",
-    --     ["p"] = "PullPopup",
-    --     ["r"] = "RebasePopup",
-    --     ["P"] = "PushPopup",
-    --     ["c"] = "CommitPopup",
-    --     ["L"] = "LogPopup",
-    --     ["Z"] = "StashPopup",
-    --     ["b"] = "BranchPopup",
-    --     -- ["<space>"] = "Stage",
-    --     -- Removes the default mapping of "s"
-    --     -- ["s"] = "",
-    --   },
-    -- },
+    mappings = {
+      -- modify status buffer mappings
+      status = {
+        ["q"] = "Close",
+        ["1"] = "Depth1",
+        ["2"] = "Depth2",
+        ["3"] = "Depth3",
+        ["4"] = "Depth4",
+        ["<tab>"] = "Toggle",
+        ["x"] = "Discard",
+        ["s"] = "Stage",
+        ["a"] = "StageUnstaged",
+        ["<c-s>"] = "StageAll",
+        ["u"] = "Unstage",
+        ["U"] = "UnstageStaged",
+        ["d"] = "DiffAtFile",
+        ["$"] = "CommandHistory",
+        ["<c-r>"] = "RefreshBuffer",
+        ["o"] = "GoToFile",
+        ["<enter>"] = "Toggle",
+        ["<c-v>"] = "VSplitOpen",
+        ["<c-x>"] = "SplitOpen",
+        ["<c-t>"] = "TabOpen",
+        ["?"] = "HelpPopup",
+        ["D"] = "DiffPopup",
+        ["p"] = "PullPopup",
+        ["r"] = "RebasePopup",
+        ["P"] = "PushPopup",
+        ["c"] = "CommitPopup",
+        ["L"] = "LogPopup",
+        ["Z"] = "StashPopup",
+        ["b"] = "BranchPopup",
+        -- ["<space>"] = "Stage",
+        -- Removes the default mapping of "s"
+        -- ["s"] = "",
+      },
+    },
   }
 end
 

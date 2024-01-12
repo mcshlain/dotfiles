@@ -4,7 +4,6 @@ local M = {
   priority = 1000,
   opts = {},
 }
-
 function M.config()
   vim.cmd.colorscheme "tokyonight-storm"
 end

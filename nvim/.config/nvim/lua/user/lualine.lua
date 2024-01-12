@@ -23,12 +23,12 @@ function M.config()
     sections = {
       -- lualine_a = { {"branch", icon =""} },
       -- lualine_b = { diff },
-      -- lualine_c = { "diagnostics" },
       -- lualine_y = { "filetype" },
       -- lualine_z = { "progress" },
       lualine_a = { "mode" },
       lualine_b = { "branch" },
       lualine_c = { "filename" },
+      lualine_d = { "diagnostics" },
       lualine_x = { "location" },
       lualine_y = { "filetype" },
       lualine_z = { "progress" },

@@ -8,7 +8,6 @@ local M = {
 
 function M.config()
   local metals_config = require("metals").bare_config()
-
   -- Example of settings
   metals_config.settings = {
     showImplicitArguments = true,

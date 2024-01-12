@@ -4,6 +4,7 @@ local M = {
 }
 function M.config()
   local wk = require "which-key"
+ 
   -- vim.diagnostic.show
   wk.register {
     x = {

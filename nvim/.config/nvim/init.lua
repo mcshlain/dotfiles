@@ -10,32 +10,31 @@ require "user.launch"
 require "user.options"
 require "user.keymaps"
 require "user.autocmds"
-spec "user.colorscheme"
-spec "user.devicons"
-spec "user.treesitter"
-spec "user.neoscroll"
-spec "user.mason"
-spec "user.schemastore"
-spec "user.lspconfig"
-spec "user.null-ls"
-spec "user.telescope"
-spec "user.projects"
-spec "user.whichkey"
-spec "user.nvimtree"
-spec "user.lualine"
-spec "user.autopairs"
-spec "user.comment"
-spec "user.indentline"
-spec "user.gitsigns"
-spec "user.neogit"
-spec "user.diffview"
-spec "user.illuminate"
-spec "user.trouble"
-spec "user.todo-comments"
-spec "user.cmp"
-spec "user.dap"
-spec "user.scala-lsp"
-spec "user.harpoon"
-spec "user.dressing"
--- spec "user.toggleterm"
+spec "user.colorscheme" -- set color theme
+spec "user.devicons" -- adds ability to add icons to stuff
+spec "user.treesitter" -- syntax highlighting
+spec "user.neoscroll" -- smooth scrolling
+spec "user.mason" -- builds LSP servers
+spec "user.schemastore" -- get common json schemas
+spec "user.lspconfig" -- basic LSP config
+spec "user.null-ls" -- command line tools as LSPs
+spec "user.telescope" -- fuzzy search anything
+spec "user.projects" -- change vi scope to match project
+spec "user.whichkey" -- visual key mapping
+spec "user.nvimtree" -- file explorer
+spec "user.lualine" -- bottom status line
+spec "user.autopairs" -- auto complete brackets
+spec "user.comment" -- commenting in different languages
+spec "user.indentline" -- better indentation support
+spec "user.gitsigns" -- git information status column
+spec "user.neogit" -- git manager
+spec "user.diffview" -- diff view for git
+spec "user.illuminate" -- highlights items similar to what you are on
+spec "user.trouble" -- errors panel
+spec "user.todo-comments" -- todo highlighting
+spec "user.cmp" -- auto completion
+spec "user.dap" -- debugger
+spec "user.scala-lsp" -- metals LSP for scala
+spec "user.harpoon" -- quick navigation between marked files
+spec "user.dressing" -- UI tweaks for better inputs
 require "user.lazy"

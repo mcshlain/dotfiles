@@ -1,4 +1,12 @@
 -- Based on https://github.com/LunarVim/Launch.nvim
+--
+-- TODO: dao run/debug in a better panel (without interaction)
+-- TODO: running tests would be great
+-- TODO: spell checker?
+-- TODO: remap keybindings for better code interactions
+-- TODO: plugin that show icon when standing on a word with code actions or codelenses available
+-- TODO: show errors inline (at least a preview) - this should be part of diagnostics, something is supressing it
+--
 -- TODO: metals/dap running in a nicer panel without interaction
 -- TODO: configure trouble to show errors in line as well
 -- TODO: setup debugger/tester/runner for scala
@@ -37,4 +45,5 @@ spec "user.dap" -- debugger
 spec "user.scala-lsp" -- metals LSP for scala
 spec "user.harpoon" -- quick navigation between marked files
 spec "user.dressing" -- UI tweaks for better inputs
+spec "user.dapui"
 require "user.lazy"

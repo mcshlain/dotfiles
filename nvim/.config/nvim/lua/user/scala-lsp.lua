@@ -7,11 +7,15 @@ local M = {
 }
 
 function M.config()
+  -- fixes something with messages
+  vim.opt_global.shortmess:remove("F")
+
   local metals_config = require("metals").bare_config()
   -- Example of settings
   metals_config.settings = {
     showImplicitArguments = true,
     excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+    enableSemanticHighlighting = true,
   }
   metals_config.init_options = {
     statusBarProvider = "on",

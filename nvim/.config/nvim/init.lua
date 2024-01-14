@@ -45,5 +45,7 @@ spec "user.dap" -- debugger
 spec "user.scala-lsp" -- metals LSP for scala
 spec "user.harpoon" -- quick navigation between marked files
 spec "user.dressing" -- UI tweaks for better inputs
-spec "user.dapui"
+spec "user.dapui" -- UI panels for debug/run mode of dap
+spec "user.actions-preview" -- better actions menu
+spec "user.lightbulb" -- indicator for code actions in code
 require "user.lazy"

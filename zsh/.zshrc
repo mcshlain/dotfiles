@@ -100,6 +100,8 @@ alias bc3=bcompare
 alias xclip="xclip -selection c"
 alias yank="yank-cli"
 alias pipen="pipenv"
+alias frigg="cd ~/projects/frigg"
+alias spike="cd ~/projects/spike"
 
 # Theme configuration
 #BULLETTRAIN_DIR_CONTEXT_SHOW=true
@@ -125,3 +127,25 @@ BULLETTRAIN_PROMPT_ORDER=(
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/mcshlain/apps/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/mcshlain/apps/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/mcshlain/apps/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/mcshlain/apps/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc'; fi

@@ -227,6 +227,7 @@ for_window [title="^Screen Layout Editor$"] floating enable
 for_window [title=".*Archive Manager.*"] floating enable
 for_window [title=".*Volume Control.*"] floating enable
 for_window [title="flameshot"] floating enable
+for_window [title="^Settings$"] floating enable
 
 # Assign common applications to their workspaces
 assign [title=".*IntelliJ\sIDEA.*"] $edit_workspace

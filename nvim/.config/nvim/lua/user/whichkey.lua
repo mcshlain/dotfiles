@@ -9,7 +9,7 @@ function M.config()
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    m = {
+    M = {
       name = "Scala Metals",
       i = { "<cmd>:MetalsInfo<cr>", "Metals [i]nfo" },
       r = { "<cmd>:MetalsRestartBuildServer<cr>", "[r]estart Build Server" },
@@ -17,20 +17,29 @@ function M.config()
       f = { "<cmd>:MetalsRunScalafix<cr>", "Run Scala[f]ix" },
       l = { "<cmd>:MetalsToggleLogs<cr>", "Toggle [l]ogs" },
       o = { "<cmd>:MetalsOrganizeImports<cr>", "[O]rganize imports" },
-      m = { "<cmd>:Telescope metals commands<cr>", "Show [M]etals commands" },
     },
-
+    j = {
+      name = "Jump to",
+      D = { "<cmd>lua vim.lsp.buf.definition()<cr><cmd>zz<cr>", "Jump to [D]efinition" },
+      d = { "<cmd>lua vim.lsp.buf.declaration()<cr><cmd>zz<cr>", "Jump to [d]eclaration" },
+      i = { "<cmd>lua vim.lsp.buf.implementation()", "Jump to [i]mplementations" },
+      r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Jump to [r]eferences" },
+      h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature [h]elp" },
+      s = { "<cmd>lua vim.lsp.buf.document_symbol()<cr>", "Document [s]ymbols" },
+      S = { "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", "Workspace [s]ymbols" },
+    },
     w = {
       name = "Windows",
       h = { "<cmd>:sp<cr>", "Split [H]orizontally" },
       v = { "<cmd>:vsplit<cr>", "Split [V]ertically" },
+      f = { "<cmd>:only<cr>", "[F]ocus current" },
     },
     b = {
       name = "Buffers",
       b = { "<cmd>Telescope buffers previewer=false<cr>", "Find [B]uffer" },
       p = { "<cmd>:e #<cr>", "Open [P]revious " },
     },
-    z = {
+    Z = {
       name = "La[z]y",
       i = { "<cmd>Lazy install<cr>", "Install" },
       s = { "<cmd>Lazy sync<cr>", "Sync" },
@@ -41,7 +50,6 @@ function M.config()
       l = { "<cmd>Lazy log<cr>", "Log" },
       d = { "<cmd>Lazy debug<cr>", "Debug" },
     },
-
     f = {
       name = "Find",
       b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -59,6 +67,7 @@ function M.config()
       R = { "<cmd>Telescope registers<cr>", "Registers" },
       k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
       C = { "<cmd>Telescope commands<cr>", "Commands" },
+      m = { "<cmd>:Telescope metals commands<cr>", "Show [M]etals commands" },
     },
     l = {
       name = "LSP",

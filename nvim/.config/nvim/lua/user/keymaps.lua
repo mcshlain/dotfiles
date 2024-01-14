@@ -22,9 +22,9 @@ keymap("n", "g#", "g#zz", opts)
 keymap("n", "<C-Space>", "<cmd>WhichKey \\<space><cr>", opts)
 
 -- Better window navigation
--- keymap("n", "<m-h>", "<C-w>h", opts)
--- keymap("n", "<m-j>", "<C-w>j", opts)
--- keymap("n", "<m-k>", "<C-w>k", opts)
--- keymap("n", "<m-l>", "<C-w>l", opts)
--- keymap("n", "<m-tab>", "<c-6>", opts)
+keymap("n", "<a-h>", "<C-w>h", opts)
+keymap("n", "<a-j>", "<C-w>j", opts)
+keymap("n", "<a-k>", "<C-w>k", opts)
+keymap("n", "<a-l>", "<C-w>l", opts)
+keymap("n", "<a-tab>", "<c-6>", opts)
 -- 

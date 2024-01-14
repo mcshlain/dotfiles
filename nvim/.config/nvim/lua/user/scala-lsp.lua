@@ -38,43 +38,6 @@ function M.config()
     keymap(bufnr, "n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", opts)
     keymap(bufnr, "n", "[c", "<cmd>lua vim.diagnostic.goto_prev({ wrap = false })<cr>", opts)
     keymap(bufnr, "n", "]c", "<cmd>lua vim.diagnostic.goto_next({ wrap = false })<cr>", opts)
-
-    local wk = require "which-key"
-    wk.register({
-      b = {
-        name = "Buffer",
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "[R]ename Buffer", buffer = bufnr, noremap = false },
-        i = { "<cmd>lua vim.lsp.codelens.run()<cr>", "[I]nspect Buffer - Codelens", buffer = bufnr, noremap = false },
-        d = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Buffer [D]iagnostics", buffer = bufnr, noremap = false },
-      },
-      a = {
-        name = "Actions",
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code [A]ction", buffer = bufnr, noremap = false },
-        s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "[S]ignature Help", buffer = bufnr, noremap = false },
-        w = { "<cmd>lua require('metals').hover_worksheet()<cr>", "[W]orksheet Hover", buffer = bufnr, noremap = false },
-      },
-      i = {
-        name = "Information",
-        a = {
-          "<cmd>lua vim.diagnostic.setqflist()<cr>",
-          "[A]ll workspace diagnostics",
-          buffer = bufnr,
-          noremap = false,
-        },
-        e = {
-          "<cmd>lua vim.diagnostic.setqflist({ severity = 'E' })<cr>",
-          "Errors in workspace",
-          buffer = bufnr,
-          noremap = false,
-        },
-        w = {
-          "<cmd>lua vim.diagnostic.setqflist({ severity = 'W' })<cr>",
-          "Warnings in workspace",
-          buffer = bufnr,
-          noremap = false,
-        },
-      },
-    }, { prefix = "<leader>" })
   end
 
   local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })

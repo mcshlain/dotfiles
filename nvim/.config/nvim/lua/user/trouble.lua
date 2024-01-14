@@ -4,14 +4,13 @@ local M = {
 }
 function M.config()
   local wk = require "which-key"
- 
   -- vim.diagnostic.show
   wk.register ({
-    x = {
-      name = "Trouble",
-      x = { "<cmd>lua vim.diagnostic.show()<cr>", "Diagnostics Show" },
+    e = {
+      name = "Errors",
+      s = { "<cmd>lua vim.diagnostic.show()<cr>", "Diagnostics Show" },
       K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Diagnostics [F]loat" },
-      t = { "<cmd>TroubleToggle<cr>", "[T]oggle Panel" },
+      e = { "<cmd>TroubleToggle<cr>", "[T]oggle Panel" },
     },
   }, { prefix = "<leader>" })
 

@@ -3,37 +3,39 @@ local M = {
   commit = "7533b0ead663d80452210c0c089e5105089697e5",
 }
 
-function M.config()
-  -- local sl_hl = vim.api.nvim_get_hl_by_name("StatusLine", true)
-  -- vim.ap.nvim_set_hl(0, "Copilot", { fg = "#6CC644", bg = sl_hl.background })
-  -- local icons = require "user.icons"
-  -- local dff = {
-  --   "diff",
-  --   colored = true,
-  --   symbols = { added = icons.git.LineAdded, modified = icons.git.LineModified, removed = icons.git.LineRemoved }, -- Changes the symbols used by the diff.
-  -- }
+function M.harpoon_indicator()
+  local mark = require "harpoon.mark"
+  local icons = require "user.icons"
+  local marks_length = mark.get_length()
+  local current_file_path = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+  for index = 1, marks_length do
+    local harpoon_file_path = mark.get_marked_file_name(index)
+    if current_file_path == harpoon_file_path then
+      return icons.ui.BookMark
+    end
+  end
+  return ""
+end
 
+function M.config()
   require("lualine").setup {
     options = {
       component_separators = { left = "", right = "" },
       section_separators = { left = "", right = "" },
-
       ignore_focus = { "NvimTree" },
     },
-    sections = {
-      -- lualine_a = { {"branch", icon =""} },
-      -- lualine_b = { diff },
-      -- lualine_y = { "filetype" },
-      -- lualine_z = { "progress" },
-      lualine_a = { "mode" },
-      lualine_b = { "branch" },
-      lualine_c = { "filename" },
-      lualine_d = { "diagnostics" },
-      lualine_x = { "location" },
-      lualine_y = { "filetype" },
-      lualine_z = { "progress" },
+    tabline = {
+      lualine_a = { "branch" },
     },
-    extensions = { "quickfix", "man", "fugitive" },
+    sections = {
+      lualine_a = { "mode" },
+      lualine_b = { M.harpoon_indicator },
+      lualine_c = { "filename" },
+      lualine_x = { "filetype" },
+      lualine_y = { "diagnostics" },
+      lualine_z = { "location" },
+    },
+    extensions = { "quickfix", "nvim-dap-ui", "trouble" },
   }
 end
 

@@ -1,11 +1,6 @@
-local M = {
-  "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
-}
+local M = { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 }
 function M.config()
-  vim.cmd.colorscheme "tokyonight-storm"
+  vim.cmd.colorscheme "moonfly"
 end
 
 return M

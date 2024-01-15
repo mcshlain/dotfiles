@@ -1,19 +1,11 @@
 -- Based on https://github.com/LunarVim/Launch.nvim
 --
--- TODO: dao run/debug in a better panel (without interaction)
+-- TODO: dao run/debug in a better panel (stderr without interaction)
 -- TODO: running tests would be great
 -- TODO: spell checker?
--- TODO: remap keybindings for better code interactions
--- TODO: plugin that show icon when standing on a word with code actions or codelenses available
 -- TODO: show errors inline (at least a preview) - this should be part of diagnostics, something is supressing it
---
--- TODO: metals/dap running in a nicer panel without interaction
--- TODO: configure trouble to show errors in line as well
--- TODO: setup debugger/tester/runner for scala
--- TODO: can metals code actions be displayed in some better panel?
--- TODO: try twighlight plugin and see if it helps in code reading
 -- TODO: add leap for faster navigation (can be paired with hardtime)
--- TODO: This config: divide the whichkey definitions between the plugins
+--
 require "user.launch"
 require "user.options"
 require "user.keymaps"
@@ -48,4 +40,5 @@ spec "user.dressing" -- UI tweaks for better inputs
 spec "user.dapui" -- UI panels for debug/run mode of dap
 spec "user.actions-preview" -- better actions menu
 spec "user.lightbulb" -- indicator for code actions in code
+-- spec "user.modes" -- vim mode indicator on current line
 require "user.lazy"

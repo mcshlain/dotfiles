@@ -1,0 +1,4 @@
+#!/bin/bash
+${HOME}/.screenlayout/0-laptop-screen.sh
+# adjust wallpaper 
+feh --bg-scale ${HOME}/.i3/background.jpg

@@ -48,6 +48,18 @@ local M = {
   },
 }
 
+-- copretator that  always sprts
+local function prefer_kind_a_over_b(a, b)
+  return function(e1, e2)
+    if e1:get_kind() == a and e2:get_kind() == b then
+      return true
+    end
+    if e2:get_kind() == a and e1:get_kind() == b then
+      return false
+    end
+  end
+end
+
 function M.config()
   vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
   vim.api.nvim_set_hl(0, "CmpItemKindTabnine", { fg = "#CA42F0" })
@@ -56,6 +68,9 @@ function M.config()
 
   local cmp = require "cmp"
   local luasnip = require "luasnip"
+  local types = require "cmp.types"
+  local CompletionItemKind = types.lsp.CompletionItemKind
+
   require("luasnip/loaders/from_vscode").lazy_load()
   require("luasnip").filetype_extend("typescriptreact", { "html" })
 
@@ -67,6 +82,15 @@ function M.config()
   local icons = require "user.icons"
 
   cmp.setup {
+    sorting = {
+      comparators = {
+        cmp.config.compare.exact,
+        cmp.config.compare.kind,
+        prefer_kind_a_over_b(CompletionItemKind.Field, CompletionItemKind.Method),
+        cmp.config.compare.recently_used,
+        cmp.config.compare.score,
+      }
+    },
     snippet = {
       expand = function(args)
         luasnip.lsp_expand(args.body) -- For `luasnip` users.
@@ -128,36 +152,10 @@ function M.config()
           path = "",
           emoji = "",
         })[entry.source.name]
-        if entry.source.name == "copilot" then
-          vim_item.kind = icons.git.Octoface
-          vim_item.kind_hl_group = "CmpItemKindCopilot"
-        end
-
-        if entry.source.name == "cmp_tabnine" then
-          vim_item.kind = icons.misc.Robot
-          vim_item.kind_hl_group = "CmpItemKindTabnine"
-        end
-
-        if entry.source.name == "crates" then
-          vim_item.kind = icons.misc.Package
-          vim_item.kind_hl_group = "CmpItemKindCrate"
-        end
-
-        if entry.source.name == "lab.quick_data" then
-          vim_item.kind = icons.misc.CircuitBoard
-          vim_item.kind_hl_group = "CmpItemKindConstant"
-        end
-
-        if entry.source.name == "emoji" then
-          vim_item.kind = icons.misc.Smiley
-          vim_item.kind_hl_group = "CmpItemKindEmoji"
-        end
-
         return vim_item
       end,
     },
     sources = {
-      { name = "copilot" },
       {
         name = "nvim_lsp",
         entry_filter = function(entry, ctx)
@@ -178,15 +176,11 @@ function M.config()
         end,
       },
       { name = "luasnip" },
-      { name = "cmp_tabnine" },
       { name = "nvim_lua" },
       { name = "buffer" },
       { name = "path" },
-      { name = "calc" },
       { name = "emoji" },
       { name = "treesitter" },
-      { name = "crates" },
-      { name = "tmux" },
     },
     confirm_opts = {
       behavior = cmp.ConfirmBehavior.Replace,

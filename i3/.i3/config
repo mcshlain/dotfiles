@@ -214,10 +214,11 @@ bindsym $mod+l exec ~/.i3/bin/fancy-lock # i3lock -c 000000
 bindsym $mod+t exec ~/.i3/bin/toggle-touchpad # i3lock -c 000000
 
 # bind changing screen mode (docking vs laptop screen)
-bindsym $mod+F4 exec --no-startup-id ~/.i3/bin/toggle-layout
+bindsym $mod+F7 exec --no-startup-id ~/.i3/bin/toggle-layout
+bindsym $mod+XF86Display exec --no-startup-id ~/.i3/bin/toggle-layout
 
 # apply currently set layout (also sets background)
-exec --no-startup-id ~/.i3/bin/apply-layout
+exec --no-startup-id ~/.i3/bin/apply-default-layout
  
 # force floating for beyond compare
 for_window [title=".*Beyond\sCompare.*"] floating enable

@@ -5,6 +5,7 @@ local M = {
 }
 
 function M.config()
+
   local mappings = {
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
@@ -22,7 +23,7 @@ function M.config()
       name = "Jump to",
       D = { "<cmd>lua vim.lsp.buf.definition()<cr><cmd>zz<cr>", "Jump to [D]efinition" },
       d = { "<cmd>lua vim.lsp.buf.declaration()<cr><cmd>zz<cr>", "Jump to [d]eclaration" },
-      i = { "<cmd>lua vim.lsp.buf.implementation()", "Jump to [i]mplementations" },
+      i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Jump to [i]mplementations" },
       r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Jump to [r]eferences" },
       h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature [h]elp" },
       s = { "<cmd>lua vim.lsp.buf.document_symbol()<cr>", "Document [s]ymbols" },
@@ -37,7 +38,9 @@ function M.config()
     b = {
       name = "Buffers",
       b = { "<cmd>Telescope buffers previewer=false<cr>", "Find [B]uffer" },
-      p = { "<cmd>:e #<cr>", "Open [P]revious " },
+      p = { "<cmd>:e #<cr>", "Open [P]revious" },
+      d = { "<cmd>:bdelete<cr>", "[d]elete buffer" },
+      D = { "<cmd>:%bd|e#|bd#<cr>", "[D]elete other Buffers" },
     },
     Z = {
       name = "La[z]y",

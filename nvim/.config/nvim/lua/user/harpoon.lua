@@ -1,5 +1,6 @@
 local M = {
-  "ThePrimeagen/harpoon",
+  dir = "~/.config/nvim/local-plugins/harpoon",
+  name = "harpoon",
   dependencies = { "nvim-telescope/telescope.nvim" },
 }
 

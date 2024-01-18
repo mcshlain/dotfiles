@@ -8,7 +8,7 @@ function M.config()
   wk.register({
      d = {
       name = "Debug",
-      d = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+      r = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
       t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
       b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
       c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -19,7 +19,7 @@ function M.config()
       o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
       u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
       p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-      r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
+      d = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
       s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
       q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     }

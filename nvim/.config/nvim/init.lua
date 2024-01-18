@@ -40,5 +40,5 @@ spec "user.dressing" -- UI tweaks for better inputs
 spec "user.dapui" -- UI panels for debug/run mode of dap
 spec "user.actions-preview" -- better actions menu
 spec "user.lightbulb" -- indicator for code actions in code
--- spec "user.modes" -- vim mode indicator on current line
+spec "user.modes" -- vim mode indicator on current line
 require "user.lazy"

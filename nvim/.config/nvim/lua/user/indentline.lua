@@ -36,7 +36,7 @@ function M.config()
       highlight = highlight,
       remove_blankline_trail = false,
     },
-    scope = { enabled = true },
+    scope = { highlight = highlight, enabled = true },
     exclude = {
       filetypes = {
         "help",

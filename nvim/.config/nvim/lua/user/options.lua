@@ -51,3 +51,8 @@ vim.cmd [[set iskeyword+=-]]
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
+
+-- spelling
+vim.cmd "set spelllang=en"
+vim.cmd "set spellsuggest=best,9"
+

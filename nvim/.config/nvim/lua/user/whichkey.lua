@@ -19,6 +19,10 @@ function M.config()
       l = { "<cmd>:MetalsToggleLogs<cr>", "Toggle [l]ogs" },
       o = { "<cmd>:MetalsOrganizeImports<cr>", "[O]rganize imports" },
     },
+    s = {
+      name = "Spelling",
+      s = { "<cmd>:set spell<cr>", "Toggle [s]pelling" },
+    },
     j = {
       name = "Jump to",
       D = { "<cmd>lua vim.lsp.buf.definition()<cr><cmd>zz<cr>", "Jump to [D]efinition" },

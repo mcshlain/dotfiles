@@ -100,8 +100,9 @@ alias bc3=bcompare
 alias xclip="xclip -selection c"
 alias yank="yank-cli"
 alias pipen="pipenv"
-alias frigg="cd ~/projects/frigg"
+alias frigg="cd ~/projects/frigg/branches/union-poc"
 alias spike="cd ~/projects/spike"
+alias nconf="cd ~/.dotfiles/nvim/.config/nvim"
 
 # Theme configuration
 #BULLETTRAIN_DIR_CONTEXT_SHOW=true

@@ -54,6 +54,7 @@ function M.config()
     "jsonls",
     "yamlls",
     "marksman",
+    "pyright"
   }
 
   local default_diagnostic_config = {

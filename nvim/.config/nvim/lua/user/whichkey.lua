@@ -18,10 +18,12 @@ function M.config()
       f = { "<cmd>:MetalsRunScalafix<cr>", "Run Scala[f]ix" },
       l = { "<cmd>:MetalsToggleLogs<cr>", "Toggle [l]ogs" },
       o = { "<cmd>:MetalsOrganizeImports<cr>", "[O]rganize imports" },
+      c = { "<cmd>:MetalsCompileCascade<cr>", "[C]ompile cascade" },
     },
     s = {
       name = "Spelling",
-      s = { "<cmd>:set spell<cr>", "Toggle [s]pelling" },
+      s = { "<cmd>:set spell<cr>", "[s]tart spelling" },
+      q = { "<cmd>:set spell!<cr>", "[q]uit spelling" },
     },
     j = {
       name = "Jump to",

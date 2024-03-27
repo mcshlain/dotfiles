@@ -13,6 +13,7 @@ M.servers = {
   "jsonls",
   "yamlls",
   "marksman",
+  "pyright",
 }
 
 function M.config()

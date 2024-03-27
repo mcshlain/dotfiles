@@ -25,12 +25,12 @@ function M.config()
       ignore_focus = { "NvimTree" },
     },
     tabline = {
-      lualine_a = { "branch" },
+      lualine_a = { "filename" },
     },
     sections = {
       lualine_a = { "mode" },
       lualine_b = { M.harpoon_indicator },
-      lualine_c = { "filename" },
+      lualine_c = { "branch" },
       lualine_x = { "filetype" },
       lualine_y = { "diagnostics" },
       lualine_z = { "location" },

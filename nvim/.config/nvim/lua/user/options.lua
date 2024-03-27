@@ -37,8 +37,14 @@ vim.opt.scrolloff = 0
 vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.title = false
--- colorcolumn = "80",
--- colorcolumn = "120",
+
+local columns = { }
+for i=121,150 do
+  columns[#columns+1] = tostring(i)
+end
+local cc = table.concat(columns,",")
+vim.opt.colorcolumn = cc
+
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
 vim.opt.fillchars:append {
   stl = " ",
@@ -55,4 +61,4 @@ vim.g.netrw_mouse = 2
 -- spelling
 vim.cmd "set spelllang=en"
 vim.cmd "set spellsuggest=best,9"
-
+vim.cmd "set spelloptions=camel"

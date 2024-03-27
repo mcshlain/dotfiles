@@ -27,4 +27,6 @@ keymap("n", "<a-j>", "<C-w>j", opts)
 keymap("n", "<a-k>", "<C-w>k", opts)
 keymap("n", "<a-l>", "<C-w>l", opts)
 keymap("n", "<a-tab>", "<c-6>", opts)
--- 
+
+-- up/down as combination to exit insert mode
+keymap("i", "jk", "<ESC>", opts)

@@ -90,6 +90,7 @@ alias ls='ls --color'
 alias la='ls -a'
 alias ll='ls -ltrh'
 alias vi='nvim'
+alias vim='nvim'
 alias ff='find . -type f -name '
 alias psg='ps -e | grep -i '
 alias du='du -h'
@@ -103,6 +104,11 @@ alias pipen="pipenv"
 alias frigg="cd ~/projects/frigg/branches/union-poc"
 alias spike="cd ~/projects/spike"
 alias nconf="cd ~/.dotfiles/nvim/.config/nvim"
+alias gs="git status"
+alias go="git checkout"
+alias gc="git commit -m"
+alias gca="git commit -am"
+alias gl="git log"
 
 # Theme configuration
 #BULLETTRAIN_DIR_CONTEXT_SHOW=true

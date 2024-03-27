@@ -10,6 +10,7 @@ function M.config()
       name = "Debug",
       r = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
       t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+      T = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear all breakpoint" },
       b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
       c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
       C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },

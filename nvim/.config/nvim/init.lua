@@ -44,4 +44,6 @@ spec "user.actions-preview" -- better actions menu
 spec "user.lightbulb" -- indicator for code actions in code
 spec "user.modes" -- vim mode indicator on current line
 spec "user.hardtime" -- prevent usage of keys to use more vim motions
+spec "user.oil" -- directoy navigation in a buffer
+spec "user.dap-python" -- dap connector for python
 require "user.lazy"

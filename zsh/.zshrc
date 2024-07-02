@@ -101,14 +101,17 @@ alias bc3=bcompare
 alias xclip="xclip -selection c"
 alias yank="yank-cli"
 alias pipen="pipenv"
-alias frigg="cd ~/projects/frigg/branches/union-poc"
+alias frigg="cd ~/projects/frigg"
 alias spike="cd ~/projects/spike"
+alias spikeu="cd ~/projects/spike/frontend/packages/spike"
 alias nconf="cd ~/.dotfiles/nvim/.config/nvim"
+alias mabool="cd /home/mcshlain/projects/ai2i-agents/agents/mabool/api"
 alias gs="git status"
 alias go="git checkout"
 alias gc="git commit -m"
 alias gca="git commit -am"
 alias gl="git log"
+alias cat="batcat"
 
 # Theme configuration
 #BULLETTRAIN_DIR_CONTEXT_SHOW=true
@@ -156,3 +159,5 @@ if [ -f '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mcs
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc'; fi
+
+conda activate py311

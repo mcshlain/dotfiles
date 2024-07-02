@@ -49,6 +49,8 @@ floating_modifier $mod
 
 # exec setxkbmap -layout us,il -option 'grp:alt_shift_toggle' -option 'ctrl:nocaps'
 # exec setxkbmap us
+# exec_always --no-startup-id "setxkbmap us,il -option grp:alt_shift_toggle -option ctrl:nocaps -option caps:escape"
+exec_always --no-startup-id "setxkbmap us,il -option grp:alt_shift_toggle -option caps:escape"
 
 # start a terminal
 bindsym $mod+Return exec gnome-terminal --window-with-profile=i3 --hide-menubar

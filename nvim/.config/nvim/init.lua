@@ -19,7 +19,6 @@ spec "user.neoscroll" -- smooth scrolling
 spec "user.mason" -- builds LSP servers
 spec "user.schemastore" -- get common json schemas
 spec "user.lspconfig" -- basic LSP config
-spec "user.null-ls" -- command line tools as LSPs
 spec "user.telescope" -- fuzzy search anything
 spec "user.projects" -- change vi scope to match project
 spec "user.whichkey" -- visual key mapping
@@ -45,5 +44,8 @@ spec "user.lightbulb" -- indicator for code actions in code
 spec "user.modes" -- vim mode indicator on current line
 spec "user.hardtime" -- prevent usage of keys to use more vim motions
 spec "user.oil" -- directoy navigation in a buffer
-spec "user.dap-python" -- dap connector for python
+spec "user.conform" -- support code formatting
+spec "user.nvim-lint" -- support linting
+-- spec "user.null-ls" -- command line tools as LSPs
+-- spec "user.dap-python" -- dap connector for python
 require "user.lazy"

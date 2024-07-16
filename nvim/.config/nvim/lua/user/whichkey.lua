@@ -5,7 +5,6 @@ local M = {
 }
 
 function M.config()
-
   local mappings = {
     ["q"] = { "<cmd>confirm q<CR>", "Quit" },
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
@@ -40,6 +39,7 @@ function M.config()
       h = { "<cmd>:sp<cr>", "Split [H]orizontally" },
       v = { "<cmd>:vsplit<cr>", "Split [V]ertically" },
       f = { "<cmd>:only<cr>", "[F]ocus current" },
+      d = { "<cmd>:q<cr>", "[D]elete current" },
     },
     b = {
       name = "Buffers",
@@ -85,6 +85,7 @@ function M.config()
       w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
       f = { "<cmd>lua require('conform').format()<cr>", "Format" },
       i = { "<cmd>LspInfo<cr>", "Info" },
+      R = { "<cmd>LspRestart<cr>", "Resart" },
       I = { "<cmd>Mason<cr>", "Mason Info" },
       j = {
         "<cmd>lua vim.diagnostic.goto_next()<cr>",

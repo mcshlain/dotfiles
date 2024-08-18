@@ -10,7 +10,7 @@ function M.config()
       name = "Errors",
       s = { "<cmd>lua vim.diagnostic.show()<cr>", "Diagnostics Show" },
       K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Diagnostics [F]loat" },
-      e = { "<cmd>TroubleToggle<cr>", "[T]oggle Panel" },
+      e = { "<cmd>Trouble diagnostics toggle<cr>", "[T]oggle Panel" },
     },
   }, { prefix = "<leader>" })
 

@@ -19,51 +19,51 @@ function M.config()
       },
       -- null_ls.builtins.diagnostics.eslint,
       completion.spell,
-      formatting.isort.with {
-        extra_args = function()
-          -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
-          return {
-            "--python-executable",
-            "/home/mcshlain/.local/share/virtualenvs/api-0GjM9XIY/bin/python3",
-            "--config",
-            "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/pyproject.toml",
-            "mabool"
-          }
-        end,
-      },
-      formatting.black.with {
-        extra_args = function()
-          -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
-          return {
-            "--config",
-            "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/pyproject.toml",
-          }
-        end,
-      },
-      diagnostics.mypy.with {
-        extra_args = function()
-          -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
-          return {
-            "--python-executable",
-            "/home/mcshlain/.local/share/virtualenvs/api-0GjM9XIY/bin/python3",
-            -- virtual .. "/bin/python3",
-            "--config-file",
-            "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/mypy.ini",
-          }
-        end,
-      },
-      diagnostics.flake8.with {
-        extra_args = function()
-          -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
-          return {
-            "--python-executable",
-            "/home/mcshlain/.local/share/virtualenvs/api-0GjM9XIY/bin/python3",
-            -- virtual .. "/bin/python3",
-            "--config",
-            "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/flake8.config",
-          }
-        end,
-      },
+      -- formatting.isort.with {
+      --   extra_args = function()
+      --     -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
+      --     return {
+      --       "--python-executable",
+      --       "/home/mcshlain/.local/share/virtualenvs/api-0GjM9XIY/bin/python3",
+      --       "--config",
+      --       "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/pyproject.toml",
+      --       "mabool"
+      --     }
+      --   end,
+      -- },
+      -- formatting.black.with {
+      --   extra_args = function()
+      --     -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
+      --     return {
+      --       "--config",
+      --       "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/pyproject.toml",
+      --     }
+      --   end,
+      -- },
+      -- diagnostics.pyright.with {
+      --   extra_args = function()
+      --     -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
+      --     return {
+      --       "--python-executable",
+      --       "/home/mcshlain/.local/share/virtualenvs/api-0GjM9XIY/bin/python3",
+      --       -- virtual .. "/bin/python3",
+      --       "--config-file",
+      --       "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/mypy.ini",
+      --     }
+      --   end,
+      -- },
+      -- diagnostics.flake8.with {
+      --   extra_args = function()
+      --     -- local virtual = os.getenv "VIRTUAL_ENV" or os.getenv "CONDA_PREFIX" or "/usr"
+      --     return {
+      --       "--python-executable",
+      --       "/home/mcshlain/.local/share/virtualenvs/api-0GjM9XIY/bin/python3",
+      --       -- virtual .. "/bin/python3",
+      --       "--config",
+      --       "/home/mcshlain/projects/ai2i-agents/agents/mabool/api/flake8.config",
+      --     }
+      --   end,
+      -- },
     },
   }
 end

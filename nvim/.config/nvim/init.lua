@@ -45,7 +45,6 @@ spec "user.modes" -- vim mode indicator on current line
 spec "user.hardtime" -- prevent usage of keys to use more vim motions
 spec "user.oil" -- directoy navigation in a buffer
 spec "user.conform" -- support code formatting
-spec "user.nvim-lint" -- support linting
 -- spec "user.null-ls" -- command line tools as LSPs
 -- spec "user.dap-python" -- dap connector for python
 require "user.lazy"

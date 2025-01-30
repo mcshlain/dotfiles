@@ -13,3 +13,4 @@ export PATH="${HOME}/.local/bin:$PATH"
 export NVM_HOME="${HOME}/.nvm"
 export PATH=$PATH:$NVM_HOME
 export PATH="$PATH:/home/mcshlain/.local/share/coursier/bin"
+. "$HOME/.cargo/env"

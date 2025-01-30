@@ -47,6 +47,14 @@ function M.config()
       p = { "<cmd>:e #<cr>", "Open [P]revious" },
       d = { "<cmd>:bdelete<cr>", "[d]elete buffer" },
       D = { "<cmd>:%bd|e#|bd#<cr>", "[D]elete other Buffers" },
+      S = { "<cmd>:wa<cr>", "[S]ave all Buffers" },
+    },
+    z = {
+      name = "Folds",
+      c = { "zc", "[c]lose fold" },
+      o = { "zo", "[o]pen fold" },
+      C = { "zC", "[C]lose All fold" },
+      O = { "zO", "[O]pen All fold" },
     },
     Z = {
       name = "La[z]y",

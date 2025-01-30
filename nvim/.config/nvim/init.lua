@@ -12,6 +12,7 @@ require "user.launch"
 require "user.options"
 require "user.keymaps"
 require "user.autocmds"
+require "user.folding"
 spec "user.colorscheme" -- set color theme
 spec "user.devicons" -- adds ability to add icons to stuff
 spec "user.treesitter" -- syntax highlighting

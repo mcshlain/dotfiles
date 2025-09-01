@@ -1,4 +1,5 @@
 return {
+  root_dir = vim.fn.getcwd(),
   settings = {
     pyright = {
       -- Using Ruff's import organizer

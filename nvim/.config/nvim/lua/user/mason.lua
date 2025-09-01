@@ -23,7 +23,12 @@ function M.config()
   }
   require("mason-lspconfig").setup {
     ensure_installed = M.servers,
-  }
+    automatic_enable = {
+          exclude = {
+              "pyright",
+          }
+      }
+    }
 end
 
 return M

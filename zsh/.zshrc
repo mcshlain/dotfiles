@@ -106,9 +106,8 @@ alias spike="cd ~/projects/spike"
 alias alila="cd ~/projects/ai2i-agents/agents/mabool/ui/packages/debug-console"
 alias spikeu="cd ~/projects/spike/frontend/packages/spike"
 alias nconf="cd ~/.dotfiles/nvim/.config/nvim"
-alias mabool="cd ~/projects/ai2i-agents/agents/mabool/api"
+alias mabool="cd ~/projects/ai2i-agents && source .venv/bin/activate"
 alias gs="git status"
-alias go="git checkout"
 alias gc="git commit -m"
 alias gca="git commit -am"
 alias gl="git log"
@@ -142,26 +141,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/mcshlain/apps/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/mcshlain/apps/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/mcshlain/apps/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/mcshlain/apps/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mcshlain/apps/google-cloud-sdk/completion.zsh.inc'; fi
 
-conda activate py311
+eval "$(zoxide init zsh)"

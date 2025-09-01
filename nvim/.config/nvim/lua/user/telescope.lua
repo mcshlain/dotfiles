@@ -31,9 +31,11 @@ function M.config()
         "--column",
         "--smart-case",
         "--hidden",
-        "--glob=!.git/",
+        "--glob=!.git/,!**/*.json,!**/*.ipynb",
       },
-
+      file_ignore_patterns = {
+        ".git", "%.jsonl?$", "%.ipynb$", "%.csv$", "%.sql(ite)?$", "%.c?[jt]sx?$", "%.bib$"
+      },
       mappings = {
         i = {
           ["<C-n>"] = actions.cycle_history_next,

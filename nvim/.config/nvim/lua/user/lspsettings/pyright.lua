@@ -3,6 +3,7 @@ return {
   settings = {
     pyright = {
       -- Using Ruff's import organizer
+      autoSearchPaths = true,
       disableOrganizeImports = true,
     },
     python = {

@@ -222,7 +222,7 @@ exec --no-startup-id ~/.i3/bin/apply-default-layout
 exec --no-startup-id ibus engine xkb:us::eng
  
 # force floating for beyond compare
-for_window [title=".*Beyond\sCompare.*"] floating enable
+# for_window [title=".*Beyond\sCompare.*"] floating enable
 for_window [title=".*Calculator.*"] floating enable
 for_window [title="^Wicd Network Manager$"] floating enable
 for_window [title="^Screen Layout Editor$"] floating enable

@@ -89,6 +89,7 @@ function M.config()
       name = "LSP",
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
       d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
+      D = { "<cmd>CloseFloatingWindows<cr>", "[D]elete floating windows" },
       w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
       f = { "<cmd>lua require('conform').format()<cr>", "Format" },
       i = { "<cmd>LspInfo<cr>", "Info" },

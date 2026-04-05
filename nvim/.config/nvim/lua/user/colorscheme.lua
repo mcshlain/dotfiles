@@ -10,6 +10,7 @@ function M.config()
   vim.cmd "hi clear ColorColumn"
   vim.cmd "hi ColorColumn gui=bold"
   vim.cmd "hi Normal guibg=#000000"
+  vim.cmd "hi Cursor guifg=bg guibg=#999999"
 end
 
 return M

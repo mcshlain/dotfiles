@@ -1,7 +1,10 @@
 local M = {
   "folke/flash.nvim",
   event = "VeryLazy",
-  opts = {
+}
+
+function M.config()
+  require("flash").setup {
     search = {
       multi_window = false,
     },
@@ -11,18 +14,29 @@ local M = {
       before = true,
       rainbow = {
         enabled = true,
-        shade = 9,
+        shade = 5,
       },
     },
     modes = {
       search = {
         enabled = true,
+        highlight = { backdrop = false },
+      },
+      char = {
+        multi_line = false,
+        highlight = { backdrop = false },
       },
     },
     highlight = {
-      backdrop = false,
+      backdrop = true,
     },
-  },
-}
+  }
+
+  local wk = require "which-key"
+
+  wk.add {
+    { "<leader>v", "<cmd>:lua require('flash').treesitter()<cr>", desc = "Select scope", remap = false },
+  }
+end
 
 return M

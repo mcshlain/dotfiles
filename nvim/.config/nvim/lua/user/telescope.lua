@@ -19,6 +19,9 @@ function M.config()
       path_display = { "smart" },
       color_devicons = true,
       set_env = { ["COLORTERM"] = "truecolor" },
+      preview = {
+        treesitter = false,
+      },
       sorting_strategy = nil,
       layout_strategy = nil,
       layout_config = {},
@@ -118,6 +121,49 @@ function M.config()
       },
     },
   }
+
+  require("telescope").load_extension "fzf"
+end
+
+local ext_bias = { py = 0.9, md = 1.15, sqlite = 1.15, sqlite3 = 1.15, db = 1.15 }
+
+local function apply_ext_bias(sorter, get_ext)
+  -- fzf-native returns 1/fzf_score so lower = better; multiply to boost/sink by extension
+  local orig_score = sorter.scoring_function
+  sorter.scoring_function = function(self, prompt, line)
+    local score = orig_score(self, prompt, line)
+    if score == -1 then return -1 end
+    local ext = get_ext(line)
+    if ext then
+      local bias = ext_bias[ext:lower()]
+      if bias then return score * bias end
+    end
+    return score
+  end
+  return sorter
+end
+
+function M.find_files_ext_priority()
+  local conf = require("telescope.config").values
+  local sorter = apply_ext_bias(
+    conf.file_sorter {},
+    function(line) return line:match("%.([^./\\]+)$") end
+  )
+  require("telescope.builtin").find_files(
+    require("telescope.themes").get_dropdown { sorter = sorter, previewer = false }
+  )
+end
+
+function M.live_grep_ext_priority()
+  local conf = require("telescope.config").values
+  local sorter = apply_ext_bias(
+    conf.generic_sorter {},
+    -- live_grep lines are "path/to/file.ext:lnum:col:text"
+    function(line) return line:match("^[^:]*%.([^./\\:]+):") end
+  )
+  require("telescope.builtin").live_grep(
+    require("telescope.themes").get_dropdown { sorter = sorter }
+  )
 end
 
 return M

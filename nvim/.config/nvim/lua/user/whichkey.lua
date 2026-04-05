@@ -4,165 +4,6 @@ local M = {
 }
 
 function M.config()
-  local mappings = {
-    ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-    ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
-    ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-    M = {
-      name = "Scala Metals",
-      i = { "<cmd>:MetalsInfo<cr>", "Metals [i]nfo" },
-      r = { "<cmd>:MetalsRestartBuildServer<cr>", "[r]estart Build Server" },
-      d = { "<cmd>:MetalsRunDoctor<cr>", "Run [d]octor" },
-      f = { "<cmd>:MetalsRunScalafix<cr>", "Run Scala[f]ix" },
-      l = { "<cmd>:MetalsToggleLogs<cr>", "Toggle [l]ogs" },
-      o = { "<cmd>:MetalsOrganizeImports<cr>", "[O]rganize imports" },
-      c = { "<cmd>:MetalsCompileCascade<cr>", "[C]ompile cascade" },
-    },
-    s = {
-      name = "Spelling",
-      s = { "<cmd>:set spell<cr>", "[s]tart spelling" },
-      q = { "<cmd>:set spell!<cr>", "[q]uit spelling" },
-    },
-    j = {
-      name = "Jump to",
-      D = { "<cmd>lua vim.lsp.buf.definition()<cr><cmd>zz<cr>", "Jump to [D]efinition" },
-      d = { "<cmd>lua vim.lsp.buf.declaration()<cr><cmd>zz<cr>", "Jump to [d]eclaration" },
-      i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Jump to [i]mplementations" },
-      r = { "<cmd>lua vim.lsp.buf.references()<cr>", "Jump to [r]eferences" },
-      h = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature [h]elp" },
-      s = { "<cmd>lua vim.lsp.buf.document_symbol()<cr>", "Document [s]ymbols" },
-      S = { "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", "Workspace [s]ymbols" },
-    },
-    w = {
-      name = "Windows",
-      h = { "<cmd>:sp<cr>", "Split [H]orizontally" },
-      v = { "<cmd>:vsplit<cr>", "Split [V]ertically" },
-      f = { "<cmd>:only<cr>", "[F]ocus current" },
-      d = { "<cmd>:q<cr>", "[D]elete current" },
-    },
-    b = {
-      name = "Buffers",
-      b = { "<cmd>Telescope buffers previewer=false<cr>", "Find [B]uffer" },
-      p = { "<cmd>:e #<cr>", "Open [P]revious" },
-      d = { "<cmd>:bdelete<cr>", "[d]elete buffer" },
-      D = { "<cmd>:%bd|e#|bd#<cr>", "[D]elete other Buffers" },
-      S = { "<cmd>:wa<cr>", "[S]ave all Buffers" },
-    },
-    z = {
-      name = "Folds",
-      c = { "zc", "[c]lose fold" },
-      o = { "zo", "[o]pen fold" },
-      C = { "zC", "[C]lose All fold" },
-      O = { "zO", "[O]pen All fold" },
-    },
-    Z = {
-      name = "La[z]y",
-      i = { "<cmd>Lazy install<cr>", "Install" },
-      s = { "<cmd>Lazy sync<cr>", "Sync" },
-      S = { "<cmd>Lazy clear<cr>", "Status" },
-      c = { "<cmd>Lazy clean<cr>", "Clean" },
-      u = { "<cmd>Lazy update<cr>", "Update" },
-      p = { "<cmd>Lazy profile<cr>", "Profile" },
-      l = { "<cmd>Lazy log<cr>", "Log" },
-      d = { "<cmd>Lazy debug<cr>", "Debug" },
-    },
-    f = {
-      name = "Find",
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-      f = { "<cmd>Telescope find_files<cr>", "Find files" },
-      p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-      t = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-      s = { "<cmd>Telescope grep_string<cr>", "Find String" },
-      h = { "<cmd>Telescope help_tags<cr>", "Help" },
-      H = { "<cmd>Telescope highlights<cr>", "Highlights" },
-      i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-      l = { "<cmd>Telescope resume<cr>", "Last Search" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
-      m = { "<cmd>:Telescope metals commands<cr>", "Show [M]etals commands" },
-    },
-    l = {
-      name = "LSP",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-      d = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", "Buffer Diagnostics" },
-      D = { "<cmd>CloseFloatingWindows<cr>", "[D]elete floating windows" },
-      w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-      f = { "<cmd>lua require('conform').format()<cr>", "Format" },
-      i = { "<cmd>LspInfo<cr>", "Info" },
-      R = { "<cmd>LspRestart<cr>", "Resart" },
-      I = { "<cmd>Mason<cr>", "Mason Info" },
-      j = {
-        "<cmd>lua vim.diagnostic.goto_next()<cr>",
-        "Next Diagnostic",
-      },
-      k = {
-        "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-        "Prev Diagnostic",
-      },
-      l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-      q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-      r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-      s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-      S = {
-        "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-        "Workspace Symbols",
-      },
-      e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
-    },
-
-    --     t = {
-    --       name = "Tab",
-    --       t = {
-    --         "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-    --         "Find Tab",
-    --       },
-    --       a = { "<cmd>$tabnew<cr>", "New Empty Tab" },
-    --       A = { "<cmd>tabnew %<cr>", "New Tab" },
-    --       n = { "<cmd>tabn<cr>", "Next" },
-    --       o = { "<cmd>tabonly<cr>", "Only" },
-    --       p = { "<cmd>tabp<cr>", "Prev" },
-    --       h = { "<cmd>-tabmove<cr>", "Move Left" },
-    --       l = { "<cmd>+tabmove<cr>", "Move Right" },
-    --     },
-
-    T = {
-      name = "Treesitter",
-      i = { ":TSConfigInfo<cr>", "Info" },
-    },
-  }
-
-  local opts = {
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-  }
-
-  -- NOTE: Prefer using : over <cmd> as the latter avoids going back in normal-mode.
-  -- see https://neovim.io/doc/user/map.html#:map-cmd
-  local vmappings = {
-    ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
-    l = {
-      name = "LSP",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    },
-  }
-
-  local vopts = {
-    mode = "v", -- VISUAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-  }
-
   local which_key = require "which-key"
 
   which_key.setup {
@@ -185,36 +26,24 @@ function M.config()
         g = false, -- bindings for prefixed with g
       },
     },
-    popup_mappings = {
+    keys = {
       scroll_down = "<c-d>", -- binding to scroll down inside the popup
       scroll_up = "<c-u>", -- binding to scroll up inside the popup
     },
-    window = {
+    win = {
       border = "rounded", -- none, single, double, shadow
-      position = "bottom", -- bottom, top
-      margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-      padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-      winblend = 0,
+      padding = { 2, 2 }, -- extra window padding [top/bottom, right/left]
+      wo = {
+        winblend = 0,
+      },
     },
     layout = {
-      height = { min = 4, max = 25 }, -- min and max height of the columns
       width = { min = 20, max = 50 }, -- min and max width of the columns
       spacing = 3, -- spacing between columns
-      align = "left", -- align columns left, center or right
     },
-    ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-    hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
     show_keys = true, -- show the currently pressed key and its label as a message in the command line
-    triggers = "auto", -- automatically setup triggers
-    -- triggers = {"<leader>"} -- or specify a list manually
-    triggers_blacklist = {
-      -- list of mode / prefixes that should never be hooked by WhichKey
-      -- this is mostly relevant for key maps that start with a native binding
-      -- most people should not need to change this
-      i = { "j", "k" },
-      v = { "j", "k" },
-    },
+    triggers = { { "<auto>", mode = "nxso" } }, -- automatically setup triggers
     -- disable the WhichKey popup for certain buf types and file types.
     -- Disabled by default for Telescope
     disable = {
@@ -223,8 +52,97 @@ function M.config()
     },
   }
 
-  which_key.register(mappings, opts)
-  which_key.register(vmappings, vopts)
+  which_key.add {
+    { "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Comment", nowait = true, remap = false },
+    { "<leader>M", group = "Scala Metals", nowait = true, remap = false },
+    { "<leader>Mc", "<cmd>:MetalsCompileCascade<cr>", desc = "[C]ompile cascade", nowait = true, remap = false },
+    { "<leader>Md", "<cmd>:MetalsRunDoctor<cr>", desc = "Run [d]octor", nowait = true, remap = false },
+    { "<leader>Mf", "<cmd>:MetalsRunScalafix<cr>", desc = "Run Scala[f]ix", nowait = true, remap = false },
+    { "<leader>Mi", "<cmd>:MetalsInfo<cr>", desc = "Metals [i]nfo", nowait = true, remap = false },
+    { "<leader>Ml", "<cmd>:MetalsToggleLogs<cr>", desc = "Toggle [l]ogs", nowait = true, remap = false },
+    { "<leader>Mo", "<cmd>:MetalsOrganizeImports<cr>", desc = "[O]rganize imports", nowait = true, remap = false },
+    { "<leader>Mr", "<cmd>:MetalsRestartBuildServer<cr>", desc = "[r]estart Build Server", nowait = true, remap = false },
+    { "<leader>T", group = "Treesitter", nowait = true, remap = false },
+    { "<leader>Ti", ":TSConfigInfo<cr>", desc = "Info", nowait = true, remap = false },
+    { "<leader>Z", group = "La[z]y", nowait = true, remap = false },
+    { "<leader>ZS", "<cmd>Lazy clear<cr>", desc = "Status", nowait = true, remap = false },
+    { "<leader>Zc", "<cmd>Lazy clean<cr>", desc = "Clean", nowait = true, remap = false },
+    { "<leader>Zd", "<cmd>Lazy debug<cr>", desc = "Debug", nowait = true, remap = false },
+    { "<leader>Zi", "<cmd>Lazy install<cr>", desc = "Install", nowait = true, remap = false },
+    { "<leader>Zl", "<cmd>Lazy log<cr>", desc = "Log", nowait = true, remap = false },
+    { "<leader>Zp", "<cmd>Lazy profile<cr>", desc = "Profile", nowait = true, remap = false },
+    { "<leader>Zs", "<cmd>Lazy sync<cr>", desc = "Sync", nowait = true, remap = false },
+    { "<leader>Zu", "<cmd>Lazy update<cr>", desc = "Update", nowait = true, remap = false },
+    { "<leader>b", group = "Buffers", nowait = true, remap = false },
+    { "<leader>bD", "<cmd>:%bd|e#|bd#<cr>", desc = "[D]elete other Buffers", nowait = true, remap = false },
+    { "<leader>bS", "<cmd>:wa<cr>", desc = "[S]ave all Buffers", nowait = true, remap = false },
+    { "<leader>bb", "<cmd>Telescope buffers previewer=false<cr>", desc = "Find [B]uffer", nowait = true, remap = false },
+    { "<leader>bd", "<cmd>:bdelete<cr>", desc = "[d]elete buffer", nowait = true, remap = false },
+    { "<leader>bp", "<cmd>:e #<cr>", desc = "Open [P]revious", nowait = true, remap = false },
+    { "<leader>f", group = "Find", nowait = true, remap = false },
+    { "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands", nowait = true, remap = false },
+    { "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "Highlights", nowait = true, remap = false },
+    { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages", nowait = true, remap = false },
+    { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers", nowait = true, remap = false },
+    { "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch", nowait = true, remap = false },
+    { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme", nowait = true, remap = false },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files", nowait = true, remap = false },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help", nowait = true, remap = false },
+    { "<leader>fi", "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", desc = "Media", nowait = true, remap = false },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", nowait = true, remap = false },
+    { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search", nowait = true, remap = false },
+    { "<leader>fm", "<cmd>:Telescope metals commands<cr>", desc = "Show [M]etals commands", nowait = true, remap = false },
+    { "<leader>fp", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects", nowait = true, remap = false },
+    { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent File", nowait = true, remap = false },
+    { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Find String", nowait = true, remap = false },
+    { "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find Text", nowait = true, remap = false },
+    { "<leader>h", "<cmd>nohlsearch<CR>", desc = "No Highlight", nowait = true, remap = false },
+    { "<leader>j", group = "Jump to", nowait = true, remap = false },
+    { "<leader>jD", "<cmd>lua vim.lsp.buf.definition()<cr><cmd>zz<cr>", desc = "Jump to [D]efinition", nowait = true, remap = false },
+    { "<leader>jS", "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", desc = "Workspace [s]ymbols", nowait = true, remap = false },
+    { "<leader>jd", "<cmd>lua vim.lsp.buf.declaration()<cr><cmd>zz<cr>", desc = "Jump to [d]eclaration", nowait = true, remap = false },
+    { "<leader>jh", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature [h]elp", nowait = true, remap = false },
+    { "<leader>ji", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "Jump to [i]mplementations", nowait = true, remap = false },
+    { "<leader>jr", "<cmd>lua vim.lsp.buf.references()<cr>", desc = "Jump to [r]eferences", nowait = true, remap = false },
+    { "<leader>js", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", desc = "Document [s]ymbols", nowait = true, remap = false },
+    { "<leader>l", group = "LSP", nowait = true, remap = false },
+    { "<leader>lD", "<cmd>CloseFloatingWindows<cr>", desc = "[D]elete floating windows", nowait = true, remap = false },
+    { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info", nowait = true, remap = false },
+    { "<leader>lR", "<cmd>LspRestart<cr>", desc = "Resart", nowait = true, remap = false },
+    { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false },
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
+    { "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", desc = "Buffer Diagnostics", nowait = true, remap = false },
+    { "<leader>le", "<cmd>Telescope quickfix<cr>", desc = "Telescope Quickfix", nowait = true, remap = false },
+    { "<leader>lf", "<cmd>lua require('conform').format()<cr>", desc = "Format", nowait = true, remap = false },
+    { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info", nowait = true, remap = false },
+    { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic", nowait = true, remap = false },
+    { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic", nowait = true, remap = false },
+    { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action", nowait = true, remap = false },
+    { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix", nowait = true, remap = false },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = true, remap = false },
+    { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols", nowait = true, remap = false },
+    { "<leader>lw", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics", nowait = true, remap = false },
+    { "<leader>q", "<cmd>confirm q<CR>", desc = "Quit", nowait = true, remap = false },
+    { "<leader>s", group = "Spelling", nowait = true, remap = false },
+    { "<leader>sq", "<cmd>:set spell!<cr>", desc = "[q]uit spelling", nowait = true, remap = false },
+    { "<leader>ss", "<cmd>:set spell<cr>", desc = "[s]tart spelling", nowait = true, remap = false },
+    { "<leader>w", group = "Windows", nowait = true, remap = false },
+    { "<leader>wd", "<cmd>:q<cr>", desc = "[D]elete current", nowait = true, remap = false },
+    { "<leader>wf", "<cmd>:only<cr>", desc = "[F]ocus current", nowait = true, remap = false },
+    { "<leader>wh", "<cmd>:sp<cr>", desc = "Split [H]orizontally", nowait = true, remap = false },
+    { "<leader>wv", "<cmd>:vsplit<cr>", desc = "Split [V]ertically", nowait = true, remap = false },
+    { "<leader>z", group = "Folds", nowait = true, remap = false },
+    { "<leader>zC", "zC", desc = "[C]lose All fold", nowait = true, remap = false },
+    { "<leader>zO", "zO", desc = "[O]pen All fold", nowait = true, remap = false },
+    { "<leader>zc", "zc", desc = "[c]lose fold", nowait = true, remap = false },
+    { "<leader>zo", "zo", desc = "[o]pen fold", nowait = true, remap = false },
+    {
+      mode = { "v" },
+      { "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment toggle linewise (visual)", nowait = true, remap = false },
+      { "<leader>l", group = "LSP", nowait = true, remap = false },
+      { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
+    },
+  }
 end
 
 return M

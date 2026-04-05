@@ -8,16 +8,14 @@ function M.config()
   require("telescope").load_extension "harpoon"
   local wk = require "which-key"
 
-  wk.register({
-    m = {
-      name = "Markings",
-      m = { "<cmd>:Telescope harpoon marks<cr>", "Show [M]arks", noremap = false },
-      a = { "<cmd>:lua require('harpoon.mark').add_file()<cr>", "[a]dd Mark", noremap = false },
-      d = { "<cmd>:lua require('harpoon.mark').rm_file()<cr>", "[d]elete Mark", noremap = false },
-      t = { "<cmd>:lua require('harpoon.mark').toggle_file()<cr>", "[t]oggle Mark", noremap = false },
-      D = { "<cmd>:lua require('harpoon.mark').clear_all()<cr>", "[D]elete all Marks", noremap = false },
-    },
-  }, { prefix = "<leader>" })
+  wk.add {
+    { "<leader>m", group = "Markings" },
+    { "<leader>mD", "<cmd>:lua require('harpoon.mark').clear_all()<cr>", desc = "[D]elete all Marks", remap = true },
+    { "<leader>ma", "<cmd>:lua require('harpoon.mark').add_file()<cr>", desc = "[a]dd Mark", remap = true },
+    { "<leader>md", "<cmd>:lua require('harpoon.mark').rm_file()<cr>", desc = "[d]elete Mark", remap = true },
+    { "<leader>mm", "<cmd>:Telescope harpoon marks<cr>", desc = "Show [M]arks", remap = true },
+    { "<leader>mt", "<cmd>:lua require('harpoon.mark').toggle_file()<cr>", desc = "[t]oggle Mark", remap = true },
+  }
 end
 
 return M

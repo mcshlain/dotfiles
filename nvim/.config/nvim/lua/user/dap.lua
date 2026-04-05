@@ -5,26 +5,24 @@ local M = {
 function M.config()
   local wk = require "which-key"
 
-  wk.register({
-     d = {
-      name = "Debug",
-      r = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
-      t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-      T = { "<cmd>lua require'dap'.clear_breakpoints()<cr>", "Clear all breakpoint" },
-      b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-      c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-      C = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-      D = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-      g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-      i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-      o = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-      u = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-      p = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-      d = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
-      s = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-      q = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    }
-  }, { prefix = "<leader>" })
+  wk.add {
+    { "<leader>d", group = "Debug" },
+    { "<leader>dC", "<cmd>lua require'dap'.run_to_cursor()<cr>", desc = "Run To Cursor" },
+    { "<leader>dD", "<cmd>lua require'dap'.disconnect()<cr>", desc = "Disconnect" },
+    { "<leader>dT", "<cmd>lua require'dap'.clear_breakpoints()<cr>", desc = "Clear all breakpoint" },
+    { "<leader>db", "<cmd>lua require'dap'.step_back()<cr>", desc = "Step Back" },
+    { "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", desc = "Continue" },
+    { "<leader>dd", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "Toggle Repl" },
+    { "<leader>dg", "<cmd>lua require'dap'.session()<cr>", desc = "Get Session" },
+    { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", desc = "Step Into" },
+    { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", desc = "Step Over" },
+    { "<leader>dp", "<cmd>lua require'dap'.pause()<cr>", desc = "Pause" },
+    { "<leader>dq", "<cmd>lua require'dap'.close()<cr>", desc = "Quit" },
+    { "<leader>dr", "<cmd>lua require'dapui'.toggle({reset = true})<cr>", desc = "Toggle UI" },
+    { "<leader>ds", "<cmd>lua require'dap'.continue()<cr>", desc = "Start" },
+    { "<leader>dt", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
+    { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
+  }
 
   -- Debug settings if you're using nvim-dap
   local dap = require "dap"

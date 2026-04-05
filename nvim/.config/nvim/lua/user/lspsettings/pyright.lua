@@ -1,10 +1,5 @@
-local util = require("lspconfig.util")
-
 return {
-  root_dir = function(fname)
-    return util.root_pattern("pyproject.toml")(fname)
-        or util.root_pattern("pyrightconfig.json")(fname)
-  end,
+  root_markers = { "pyproject.toml", "pyrightconfig.json", ".git" },
   settings = {
     pyright = {
       -- Using Ruff's import organizer

@@ -43,7 +43,6 @@ function M.common_capabilities()
 end
 
 function M.config()
-  local lspconfig = require "lspconfig"
   local icons = require "user.icons"
 
   local servers = {
@@ -88,25 +87,24 @@ function M.config()
 
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-  require("lspconfig.ui.windows").default_options.border = "rounded"
+
+  vim.lsp.config("*", {
+    on_attach = M.on_attach,
+    capabilities = M.common_capabilities(),
+  })
 
   for _, server in pairs(servers) do
-    local opts = {
-      on_attach = M.on_attach,
-      capabilities = M.common_capabilities(),
-    }
-
     local require_ok, settings = pcall(require, "user.lspsettings." .. server)
     if require_ok then
-      opts = vim.tbl_deep_extend("force", settings, opts)
+      vim.lsp.config(server, settings)
     end
 
     if server == "lua_ls" then
       require("neodev").setup {}
     end
-
-    lspconfig[server].setup(opts)
   end
+
+  vim.lsp.enable(servers)
 end
 
 return M

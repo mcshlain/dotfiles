@@ -5,14 +5,12 @@ local M = {
 function M.config()
   local wk = require "which-key"
   -- vim.diagnostic.show
-  wk.register ({
-    e = {
-      name = "Errors",
-      s = { "<cmd>lua vim.diagnostic.show()<cr>", "Diagnostics Show" },
-      K = { "<cmd>lua vim.diagnostic.open_float()<cr>", "Open Diagnostics [F]loat" },
-      e = { "<cmd>Trouble diagnostics toggle<cr>", "[T]oggle Panel" },
-    },
-  }, { prefix = "<leader>" })
+  wk.add {
+    { "<leader>e", group = "Errors" },
+    { "<leader>eK", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "Open Diagnostics [F]loat" },
+    { "<leader>ee", "<cmd>Trouble diagnostics toggle<cr>", desc = "[T]oggle Panel" },
+    { "<leader>es", "<cmd>lua vim.diagnostic.show()<cr>", desc = "Diagnostics Show" },
+  }
 
   local trouble = require "trouble"
   trouble.opts = {

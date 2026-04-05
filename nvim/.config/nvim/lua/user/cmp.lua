@@ -6,26 +6,26 @@ local M = {
       "hrsh7th/cmp-nvim-lsp",
       event = "InsertEnter",
     },
-    {
-      "hrsh7th/cmp-emoji",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-buffer",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-path",
-      event = "InsertEnter",
-    },
-    {
-      "hrsh7th/cmp-cmdline",
-      event = "InsertEnter",
-    },
-    {
-      "saadparwaiz1/cmp_luasnip",
-      event = "InsertEnter",
-    },
+    -- {
+    --   "hrsh7th/cmp-emoji",
+    --   event = "InsertEnter",
+    -- },
+    -- {
+    --   "hrsh7th/cmp-buffer",
+    --   event = "InsertEnter",
+    -- },
+    -- {
+    --   "hrsh7th/cmp-path",
+    --   event = "InsertEnter",
+    -- },
+    -- {
+    --   "hrsh7th/cmp-cmdline",
+    --   event = "InsertEnter",
+    -- },
+    -- {
+    --   "saadparwaiz1/cmp_luasnip",
+    --   event = "InsertEnter",
+    -- },
     {
       "L3MON4D3/LuaSnip",
       event = "InsertEnter",

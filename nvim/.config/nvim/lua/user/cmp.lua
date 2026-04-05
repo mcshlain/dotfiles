@@ -26,13 +26,13 @@ local M = {
     --   "saadparwaiz1/cmp_luasnip",
     --   event = "InsertEnter",
     -- },
-    -- {
-    --   "L3MON4D3/LuaSnip",
-    --   event = "InsertEnter",
-    --   dependencies = {
-    --     "rafamadriz/friendly-snippets",
-    --   },
-    -- },
+    {
+      "L3MON4D3/LuaSnip",
+      event = "InsertEnter",
+      dependencies = {
+        "rafamadriz/friendly-snippets",
+      },
+    },
     {
       "hrsh7th/cmp-nvim-lua",
     },

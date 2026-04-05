@@ -39,7 +39,6 @@ local M = {
   },
 }
 
--- copretator that  always sprts
 local function prefer_kind_a_over_b(a, b)
   return function(e1, e2)
     if e1:get_kind() == a and e2:get_kind() == b then
@@ -48,6 +47,28 @@ local function prefer_kind_a_over_b(a, b)
     if e2:get_kind() == a and e1:get_kind() == b then
       return false
     end
+  end
+end
+
+-- Deprioritize auto-imports (items that would add an import statement) so that
+-- local variables / already-imported names appear first.
+local function deprioritize_auto_imports(e1, e2)
+  local function is_auto_import(entry)
+    local item = entry.completion_item
+    -- Some LSPs (e.g. pyright) pre-populate additionalTextEdits in the list
+    if item.additionalTextEdits and #item.additionalTextEdits > 0 then
+      return true
+    end
+    -- pyright and others set labelDetails.description to the source module
+    if item.labelDetails and item.labelDetails.description and item.labelDetails.description ~= "" then
+      return true
+    end
+    return false
+  end
+  local e1_import = is_auto_import(e1)
+  local e2_import = is_auto_import(e2)
+  if e1_import ~= e2_import then
+    return not e1_import -- true = e1 is better (non-import wins)
   end
 end
 
@@ -76,6 +97,7 @@ function M.config()
     sorting = {
       comparators = {
         cmp.config.compare.exact,
+        deprioritize_auto_imports,
         cmp.config.compare.kind,
         prefer_kind_a_over_b(CompletionItemKind.Field, CompletionItemKind.Method),
         cmp.config.compare.recently_used,

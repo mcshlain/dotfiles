@@ -49,6 +49,7 @@ spec "user.conform" -- support code formatting
 spec "user.mini-icons" -- useful icon set used by whichkey
 spec "user.undotree" -- useful icon set used by whichkey
 spec "user.flash" -- highlighting during search commands
+spec "user.inline-diagnostics" -- show diagnostics in a small popover
 -- spec "user.null-ls" -- command line tools as LSPs
 -- spec "user.dap-python" -- dap connector for python
 require "user.lazy"

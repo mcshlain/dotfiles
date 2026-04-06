@@ -7,10 +7,12 @@ function M.config()
   require("flash").setup {
     search = {
       multi_window = false,
+      mode = "search",
     },
     label = {
-      style = "overlay",
-      after = true,
+      style = "inline",
+      uppercase = false,
+      after = false,
       before = true,
       rainbow = {
         enabled = true,

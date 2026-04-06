@@ -1,12 +1,7 @@
 -- Based on https://github.com/LunarVim/Launch.nvim
 --
--- TODO: better sorting in completions
--- TODO: code folding not working at the moment
 -- TODO: dao run/debug in a better panel (stderr without interaction)
 -- TODO: running tests would be great
--- TODO: spell checker?
--- TODO: show errors inline (at least a preview) - this should be part of diagnostics, something is supressing it
--- TODO: add leap for faster navigation (can be paired with hardtime)
 --
 require "user.launch"
 require "user.options"
@@ -41,7 +36,7 @@ spec "user.harpoon" -- quick navigation between marked files
 spec "user.dressing" -- UI tweaks for better inputs
 spec "user.dapui" -- UI panels for debug/run mode of dap
 spec "user.actions-preview" -- better actions menu
-spec "user.lightbulb" -- indicator for code actions in code
+-- spec "user.lightbulb" -- indicator for code actions in code
 spec "user.modes" -- vim mode indicator on current line
 spec "user.hardtime" -- prevent usage of keys to use more vim motions
 spec "user.oil" -- directoy navigation in a buffer

@@ -9,6 +9,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
 })
 
+-- Workaround for nvim-treesitter bug on Neovim 0.11: malformed nodes passed to
+-- get_node_text cause a "nil range method" crash during markdown injection parsing.
+local orig_get_node_text = vim.treesitter.get_node_text
+vim.treesitter.get_node_text = function(node, source, opts)
+  if type(node) ~= "userdata" then return "" end
+  return orig_get_node_text(node, source, opts)
+end
+
 vim.api.nvim_create_user_command('CloseFloatingWindows', function(opts)
     for _, window_id in ipairs(vim.api.nvim_list_wins()) do
         -- If window is floating

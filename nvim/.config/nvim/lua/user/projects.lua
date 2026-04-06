@@ -8,7 +8,12 @@ function M.config()
 
   wk.add {
     { "<leader>p", group = "Project" },
-    { "<leader>pp", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Show Projects", remap = false },
+    {
+      "<leader>pp",
+      "<cmd>lua require('telescope').extensions.projects.projects()<cr>",
+      desc = "Show Projects",
+      remap = false,
+    },
   }
 
   require("project_nvim").setup {
@@ -24,6 +29,7 @@ function M.config()
       ".svn",
       "pom.xml",
       "Pipfile",
+      "yarn.lock",
     },
     ignore_lsp = {},
     exclude_dirs = {},

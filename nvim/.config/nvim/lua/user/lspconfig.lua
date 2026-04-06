@@ -13,11 +13,15 @@ local function lsp_keymaps(bufnr)
   local keymap = vim.api.nvim_buf_set_keymap
   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
   keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 end
+
+-- Use LspAttach autocmd instead of on_attach in vim.lsp.config,
+-- which doesn't reliably fire in Neovim 0.11.
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev) lsp_keymaps(ev.buf) end,
+})
 
 M.on_attach = function(_, bufnr)
   lsp_keymaps(bufnr)
@@ -53,6 +57,7 @@ function M.config()
     "marksman",
     "pyright",
     "ruff",
+    "ts_ls",
   }
 
   vim.diagnostic.config {

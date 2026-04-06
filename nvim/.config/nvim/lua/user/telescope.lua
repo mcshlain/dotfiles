@@ -37,7 +37,7 @@ function M.config()
         "--glob=!.git/,!**/*.json,!**/*.ipynb",
       },
       file_ignore_patterns = {
-        ".git", "%.jsonl?$", "%.ipynb$", "%.csv$", "%.sql(ite)?$", "%.c?[jt]sx?$", "%.bib$"
+        ".git", "node_modules", "%.jsonl?$", "%.ipynb$", "%.csv$", "%.sql(ite)?$", "%.bib$"
       },
       mappings = {
         i = {

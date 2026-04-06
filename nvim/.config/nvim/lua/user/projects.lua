@@ -29,7 +29,6 @@ function M.config()
       ".svn",
       "pom.xml",
       "Pipfile",
-      "yarn.lock",
     },
     ignore_lsp = {},
     exclude_dirs = {},

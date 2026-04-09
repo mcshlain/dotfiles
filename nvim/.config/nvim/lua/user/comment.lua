@@ -4,7 +4,15 @@ local M = {
 }
 
 function M.config()
-  require("ts-comments").setup {}
+  require("ts-comments").setup {
+    lang = {
+      tsx = {
+        "// %s",
+        jsx_element = "// %s",
+        jsx_fragment = "// %s",
+      },
+    },
+  }
 
   local wk = require "which-key"
   wk.add {

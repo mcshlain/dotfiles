@@ -53,7 +53,6 @@ function M.config()
   }
 
   which_key.add {
-    { "<leader>/", "<Plug>(comment_toggle_linewise_current)", desc = "Comment", nowait = true, remap = false },
     { "<leader>M", group = "Scala Metals", nowait = true, remap = false },
     { "<leader>Mc", "<cmd>:MetalsCompileCascade<cr>", desc = "[C]ompile cascade", nowait = true, remap = false },
     { "<leader>Md", "<cmd>:MetalsRunDoctor<cr>", desc = "Run [d]octor", nowait = true, remap = false },
@@ -141,7 +140,6 @@ function M.config()
     { "<leader>zo", "zo", desc = "[o]pen fold", nowait = true, remap = false },
     {
       mode = { "v" },
-      { "<leader>/", "<Plug>(comment_toggle_linewise_visual)", desc = "Comment toggle linewise (visual)", nowait = true, remap = false },
       { "<leader>l", group = "LSP", nowait = true, remap = false },
       { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },
     },

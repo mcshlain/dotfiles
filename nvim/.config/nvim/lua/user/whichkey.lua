@@ -109,7 +109,7 @@ function M.config()
     { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info", nowait = true, remap = false },
     { "<leader>lR", function()
         for _, client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
-          vim.lsp.stop_client(client.id, true)
+          client:stop(true)
         end
         vim.defer_fn(function() vim.cmd("edit") end, 200)
       end, desc = "Restart LSP", nowait = true, remap = false },

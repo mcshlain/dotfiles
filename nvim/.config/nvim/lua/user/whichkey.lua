@@ -108,8 +108,10 @@ function M.config()
     { "<leader>lD", "<cmd>CloseFloatingWindows<cr>", desc = "[D]elete floating windows", nowait = true, remap = false },
     { "<leader>lI", "<cmd>Mason<cr>", desc = "Mason Info", nowait = true, remap = false },
     { "<leader>lR", function()
-        vim.lsp.stop_client(vim.lsp.get_clients({ bufnr = 0 }))
-        vim.cmd("edit")
+        for _, client in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do
+          vim.lsp.stop_client(client.id, true)
+        end
+        vim.defer_fn(function() vim.cmd("edit") end, 200)
       end, desc = "Restart LSP", nowait = true, remap = false },
     { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols", nowait = true, remap = false },
     { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", nowait = true, remap = false },

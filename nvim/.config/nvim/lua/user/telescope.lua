@@ -150,7 +150,16 @@ function M.find_files_ext_priority()
     function(line) return line:match("%.([^./\\]+)$") end
   )
   require("telescope.builtin").find_files(
-    require("telescope.themes").get_dropdown { sorter = sorter, previewer = false }
+    require("telescope.themes").get_dropdown {
+      sorter = sorter,
+      previewer = false,
+      path_display = function(_, path)
+        local parts = vim.split(path, "/")
+        local n = #parts
+        if n <= 2 then return path end
+        return parts[n - 2] .. "/" .. parts[n - 1] .. "/" .. parts[n]
+      end,
+    }
   )
 end
 
